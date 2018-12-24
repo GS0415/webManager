@@ -23,6 +23,6 @@ public class UpdateServlet extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("productId"));
         Product pro = service.selOne(id);
         req.setAttribute("pro", pro);
-        req.getRequestDispatcher("Jsps/update.jsp").forward(req, resp);
+        req.getRequestDispatcher("jsp/update.jsp").forward(req, resp);
     }
 }

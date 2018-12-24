@@ -21,15 +21,18 @@ public class DoLogin extends HttpServlet {
         String name = req.getParameter("un");
         user=service.selOneUser(name);
         System.out.println(name);
+        System.out.println(pw);
         if (user != null) { // 可以使用
             if (user.getPassWord().equals(pw)) {
                 resp.getWriter().write("1"); //密码匹配
+                System.out.println(1);
             } else {
                 resp.getWriter().write("2");//密码不正确
+                System.out.println(2);
             }
         } else {
             resp.getWriter().write("3"); // 用户不存在
+            System.out.println(3);
         }
-
     }
 }
