@@ -17,11 +17,10 @@
         }
 
         body {
-            background: #f9671e;
+            background: lightblue;
         }
 
         #top {
-            background-color: cyan;
             height: 100px;
             text-align: center;
             line-height: 100px;
@@ -71,8 +70,11 @@
             font-family: 楷体;
             margin-top: 20px;
             border-radius: 20px;
+            text-decoration-line: none;
         }
-
+            a{
+                text-decoration-line: none;
+            }
         .left-1:hover {
             background: none;
             border: 2px #f9671e solid;
@@ -91,6 +93,8 @@
             font-size: 20px;
             font-family: 楷体;
             border-radius: 20px;
+            text-decoration-line: none;
+            margin-top: 10px;
         }
         #left-2:hover {
             background: none;
@@ -135,16 +139,38 @@
     </style>
 </head>
 <body>
-<div id="top"></div>
+<div id="top">
+    <h1>后 台 管 理 系 统</h1>
+</div>
 <div id="main">
     <div id="left">
-        <div id="left-2">  个人信息:
-            <div class="left-text">欢迎 ${user.userName}</div>
-        </div>
-        <div class="left-1">商品管理</div>
-        <div class="left-1">品牌管理</div>
-        <div class="left-1">临时内容</div>
-        <div class="left-1">临时内容</div>
+        <label>
+            <a href="listOne">
+                <div id="left-2"> 个人信息:
+                    <div class="left-text">欢迎 ${user.userName}</div>
+                </div>
+            </a>
+        </label>
+        <label>
+            <a href="list">
+                <div class="left-1">商品管理</div>
+            </a>
+        </label>
+        <label>
+            <a href="listTwo">
+                <div class="left-1">品牌管理</div>
+            </a>
+        </label>
+        <label>
+            <a href="add"><%--添加--%>
+                <div class="left-1">添加商品</div>
+            </a>
+        </label>
+        <label>
+            <a href="">&lt;%&ndash;修改&ndash;%&gt;
+                <div class="left-1">添加品牌</div>
+            </a>
+        </label>
     </div>
     <div id="right">
         <div>用户名：${user.userName}</div>

@@ -18,11 +18,10 @@
         }
 
         body {
-            background: #f9671e;
+            background:lightblue;
         }
 
         #top {
-            background-color: cyan;
             height: 100px;
             text-align: center;
             line-height: 100px;
@@ -74,8 +73,11 @@
             font-family: 楷体;
             margin-top: 20px;
             border-radius: 20px;
-        }
 
+        }
+        a{
+            text-decoration-line: none;
+        }
         .left-1:hover {
             background: none;
             border: 2px #f9671e solid;
@@ -100,6 +102,7 @@
             font-size: 20px;
             font-family: 楷体;
             border-radius: 20px;
+            margin-top: 10px;
         }
 
         th {
@@ -157,9 +160,21 @@
                 <div class="left-1">商品管理</div>
             </a>
         </label>
-        <div class="left-1">临时内容</div>
-        <div class="left-1">临时内容</div>
-        <div class="left-1">临时内容</div>
+        <label>
+            <a href="listTwo">
+                <div class="left-1">品牌管理</div>
+            </a>
+        </label>
+        <label>
+            <a href="add"><%--添加--%>
+                <div class="left-1">添加商品</div>
+            </a>
+        </label>
+        <label>
+            <a href=""><%--修改--%>
+                <div class="left-1">添加品牌</div>
+            </a>
+        </label>
     </div>
     <div id="right">
         <table id="table">
@@ -174,7 +189,7 @@
                 <tr>
                     <td>${pro.productName}</td>
                     <td>${pro.productPrice}</td>
-                    <td>${pro.productUrl}</td>
+                    <td><img src="${pro.productUrl}"></td>
                     <td>${pro.productDes}</td>
                     <td><a href="delete?productId=${pro.productId}">删除</a>
                         <a href="update?productId=${pro.productId}">修改</a>
