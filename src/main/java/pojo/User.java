@@ -5,6 +5,24 @@ public class User {
     private String userName;
     private String passWord;
     private String tel;
+    private String sex;
+    private String photo;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 
     @Override
     public String toString() {

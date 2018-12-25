@@ -56,6 +56,7 @@
             <input type="password" id="pwd" placeholder="请输入密码" class="aaa">
             <input type="password" id="pwds" placeholder="请确认输入密码" class="aaa">
             <div id="tip1"></div>
+            <input type="text" id="sex" placeholder="请输入性别">
             <input type="text" id="tel" placeholder="请输入电话">
             <div class="submit"><input type="button" value="注 册" id="register" disabled="disabled"></div>
             <div class="clear"></div>
@@ -68,15 +69,17 @@
             var pwd;
             var pwds;
             var tel;
+            var sex;
             $(".aaa").keyup(function () {
                 un = $("#user").val();
                 pwd = $("#pwd").val();
                 pwds = $("#pwds").val();
                 tel = $("#tel").val();
+                sex=$("#sex").val();
                 $.ajax({
                     url: "doRegister",
                     type: "get",
-                    data: {"us": un, "pwd": pwd, "pwds": pwds, "tel": tel},
+                    data: {"us": un, "pwd": pwd, "pwds": pwds, "tel": tel,"sex":sex},
                     success: function (result) {
                         /*console.log(result);*/
                         if (result === "1") {

@@ -23,9 +23,13 @@ public class DoDoRegister extends HttpServlet {
         String pwd = req.getParameter("pwd");
         String username = req.getParameter("username");
         String tel = req.getParameter("tel");
+        String sex=req.getParameter("sex");
+        String photo=req.getParameter("photo");
+        user.setPhoto(photo);
         user.setTel(tel);
         user.setUserName(username);
         user.setPassWord(pwd);
+        user.setSex(sex);
         service.add(user);
         resp.sendRedirect("login");
     }
