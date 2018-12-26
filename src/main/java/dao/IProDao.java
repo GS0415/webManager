@@ -16,4 +16,6 @@ public interface IProDao {
 
     Product selOne(int id);
 
+    int delByMid(int id);
+
 }

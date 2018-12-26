@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet("/add")
-public class AddServlet extends HttpServlet {
+@WebServlet("/updateMark")
+public class UpdateMarkServlet extends HttpServlet {
     private IMarkDao service =new MarkDaoImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Mark> markList = service.selMark();
-        req.setAttribute("markList",markList);
-        req.getRequestDispatcher("jsp/add.jsp").forward(req, resp);
+        int id = Integer.parseInt(req.getParameter("markId"));
+        Mark m=service.selOne(id);
+        req.setAttribute("m",m);
+        req.getRequestDispatcher("jsp/updateMark.jsp").forward(req,resp);
     }
 }

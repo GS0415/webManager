@@ -17,7 +17,7 @@
         }
 
         body {
-            background: lightblue;
+            background:lightblue;
         }
 
         #top {
@@ -72,17 +72,17 @@
             border-radius: 20px;
 
         }
-
-        a {
+        a{
             text-decoration-line: none;
         }
-
         .left-1:hover {
             background: none;
             border: 2px #f9671e solid;
             color: #f9671e;
 
         }
+
+
 
         #left-2 {
             width: 290px;
@@ -97,7 +97,6 @@
             border-radius: 20px;
             margin-top: 10px;
         }
-
         td a {
             color: red;
             text-decoration: none;
@@ -145,26 +144,16 @@
         </label>
         <label>
             <a href=""><%--修改--%>
-                <div class="left-1">修改商品</div>
+                <div class="left-1">修改品牌</div>
             </a>
         </label>
     </div>
     <div id="right">
-        <form action="doUpdate" method="post" enctype="multipart/form-data">
-            <input type="text" name="id" value="${pro.productId}" hidden="hidden">
-            商品名称：<input type="text" name="name" value="${pro.productName}"><br>
-            商品价格：<input type="text" name="price" value="${pro.productPrice}"><br>
-            商品图片：<input type="file" name="url"  value="${pro.productUrl}"><br>
-            商品描述：<input type="text" name="des" value="${pro.productDes}"><br>
-            商品数量：<input type="text" name="count" value="${pro.count}"><br>
-            品牌：<select name="mark"><br>
-            <c:forEach items="${markList}" var="m">
-                <%-- <c:if test="${pro.productId=m.markId}">
-                 <option selected disabled style="display: none">${m.markName}</option>
-                 </c:if>--%>
-            <option value="${m.markId}">${m.markName}</option>
-            </c:forEach>
-            <<input type="submit" value="修改">
+        <form action="doUpdateMark" method="post" enctype="multipart/form-data">
+            <input type="text" name="id" value="${m.markId}" hidden="hidden">
+            品牌名称：<input type="text" name="name" value="${m.markName}"><br>
+            logo：<input type="file" name="logo" value="${m.logo}"><br>
+            <input type="submit" value="修改">
         </form>
     </div>
 </div>

@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/add")
-public class AddServlet extends HttpServlet {
-    private IMarkDao service =new MarkDaoImpl();
+@WebServlet("/listTwo")
+public class ListTwoServlet extends HttpServlet {
+    private IMarkDao service = new MarkDaoImpl();
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Mark> markList = service.selMark();
-        req.setAttribute("markList",markList);
-        req.getRequestDispatcher("jsp/add.jsp").forward(req, resp);
+       List<Mark> list= service.selMark();
+        req.setAttribute("list",list);
+        req.getRequestDispatcher("jsp/listTwo.jsp").forward(req,resp);
     }
 }

@@ -1,15 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/12/14
-  Time: 12:41
+  Date: 2018/12/12
+  Time: 19:40
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>修改</title>
+
+    <title>商品列表</title>
     <style>
         * {
             margin: 0;
@@ -39,7 +40,7 @@
             /*border: 1px white solid;*/
             /*display: flex;*/
             vertical-align: top;
-            background-image: url("jsp/背景.png");
+            /*background-image: url("jsp/背景.png");*/
             background-size: 350px 600px;
             flex-wrap: wrap;
             display: inline-block;
@@ -52,7 +53,9 @@
             display: inline-block;
             margin-left: 20px;
             vertical-align: top;
-            background: url("jsp/right.png");
+            /*background: url("images/right.png");*/
+            text-align: center;
+            line-height: 600px;
 
         }
 
@@ -84,6 +87,14 @@
 
         }
 
+        #table {
+            border-collapse: collapse;
+            margin: auto;
+            color: white;
+            font-family: 楷体;
+            margin-top: 10px;
+        }
+
         #left-2 {
             width: 290px;
             height: 90px;
@@ -98,8 +109,29 @@
             margin-top: 10px;
         }
 
+        th {
+            width: 100px;
+            height: 50px;
+            border: 1px saddlebrown solid;
+        }
+
+        td {
+            width: 100px;
+            height: 50px;
+            border: 1px saddlebrown solid;
+            text-align: center;
+        }
+
+        tr:nth-child(1) {
+            background: #f9671e;
+        }
+
+        tr:hover {
+            background-color: #f9671e;
+        }
+
         td a {
-            color: red;
+            color: white;
             text-decoration: none;
         }
 
@@ -115,7 +147,6 @@
     </style>
 </head>
 <body>
-
 <div id="top">
     <h1>后 台 管 理 系 统</h1>
 </div>
@@ -145,27 +176,30 @@
         </label>
         <label>
             <a href=""><%--修改--%>
-                <div class="left-1">修改商品</div>
+                <div class="left-1">添加品牌</div>
             </a>
         </label>
     </div>
     <div id="right">
-        <form action="doUpdate" method="post" enctype="multipart/form-data">
-            <input type="text" name="id" value="${pro.productId}" hidden="hidden">
-            商品名称：<input type="text" name="name" value="${pro.productName}"><br>
-            商品价格：<input type="text" name="price" value="${pro.productPrice}"><br>
-            商品图片：<input type="file" name="url"  value="${pro.productUrl}"><br>
-            商品描述：<input type="text" name="des" value="${pro.productDes}"><br>
-            商品数量：<input type="text" name="count" value="${pro.count}"><br>
-            品牌：<select name="mark"><br>
-            <c:forEach items="${markList}" var="m">
-                <%-- <c:if test="${pro.productId=m.markId}">
-                 <option selected disabled style="display: none">${m.markName}</option>
-                 </c:if>--%>
-            <option value="${m.markId}">${m.markName}</option>
+        <table id="table">
+            <tr>
+                <th>品牌序号</th>
+                <th>品牌名称</th>
+                <th>logo</th>
+                <th>操作</th>
+            </tr>
+
+            <c:forEach items="${list}" var="m">
+                <tr>
+                    <td>${m.markId}</td>
+                    <td>${m.markName}</td>
+                    <td><img src="${m.logo}" width="70px" height="70px"></td>
+                    <td><a href="deleteMark?markId=${m.markId}">删除</a>
+                        <a href="updateMark?markId=${m.markId}">修改</a>
+                    </td>
+                </tr>
             </c:forEach>
-            <<input type="submit" value="修改">
-        </form>
+        </table>
     </div>
 </div>
 

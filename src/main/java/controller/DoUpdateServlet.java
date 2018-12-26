@@ -25,12 +25,14 @@ public class DoUpdateServlet extends HttpServlet {
         String name = req.getParameter("name");
         Double price = Double.parseDouble(req.getParameter("price"));
         int id = Integer.parseInt(req.getParameter("id"));
-       /* String url = req.getParameter("url");*/
+        int markId= Integer.parseInt(req.getParameter("mark"));
+        int count= Integer.parseInt(req.getParameter("count"));
+
         Part part =req.getPart("url");
+        System.out.println(req.getPart("url"));
         String str = "C:\\Users\\Administrator\\IdeaProjects\\webManager\\src\\main\\webapp\\images\\"+part.getSubmittedFileName();
         File file = new File(str);
         String url = str.substring(str.indexOf("images"));
-        System.out.println(url);
         byte[] b=new byte[1024];
         InputStream is=part.getInputStream();
         OutputStream os =new FileOutputStream(file);
@@ -47,6 +49,8 @@ public class DoUpdateServlet extends HttpServlet {
         pro.setProductName(name);
         pro.setProductUrl(url);
         pro.setProductId(id);
+        pro.setCount(count);
+        pro.setMarkId(markId);
         service.update(pro);
         resp.sendRedirect("list");
     }

@@ -17,7 +17,7 @@
         }
 
         body {
-            background:lightblue;
+            background: lightblue;
         }
 
         #top {
@@ -39,7 +39,7 @@
             /*border: 1px white solid;*/
             /*display: flex;*/
             vertical-align: top;
-            background-image: url("jsp/背景.png");
+          /*  background-image: url("jsp/背景.png");*/
             background-size: 350px 600px;
             flex-wrap: wrap;
             display: inline-block;
@@ -52,7 +52,7 @@
             display: inline-block;
             margin-left: 20px;
             vertical-align: top;
-            background: url("jsp/right.png");
+         /*   background: url("jsp/right.png");*/
 
         }
 
@@ -72,16 +72,17 @@
             border-radius: 20px;
 
         }
-        a{
+
+        a {
             text-decoration-line: none;
         }
+
         .left-1:hover {
             background: none;
             border: 2px #f9671e solid;
             color: #f9671e;
 
         }
-
 
         #left-2 {
             width: 290px;
@@ -149,11 +150,17 @@
         </label>
     </div>
     <div id="right">
-        <form action="doAdd">
+        <form action="doAdd" method="post" enctype="multipart/form-data">
             商品名称：<input type="text" name="name"><br>
             商品价格：<input type="text" name="price"><br>
             商品图片：<input type="file" name="url"><br>
             商品描述：<input type="text" name="des"><br>
+            商品数量：<input type="text" name="count"><br>
+            品牌：<select name="mark">
+            <c:forEach items="${markList}" var="m">
+                <option value="${m.markId}">${m.markName}</option>
+            </c:forEach>
+        </select>
             <input type="submit" value="添加">
         </form>
     </div>

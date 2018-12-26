@@ -18,7 +18,7 @@
         }
 
         body {
-            background:lightblue;
+            background: lightblue;
         }
 
         #top {
@@ -40,7 +40,7 @@
             /*border: 1px white solid;*/
             /*display: flex;*/
             vertical-align: top;
-            background-image: url("jsp/背景.png");
+           /* background-image: url("jsp/背景.png");*/
             background-size: 350px 600px;
             flex-wrap: wrap;
             display: inline-block;
@@ -53,7 +53,7 @@
             display: inline-block;
             margin-left: 20px;
             vertical-align: top;
-            background: url("jsp/right.png");
+           /* background: url("images/right.png");*/
             text-align: center;
             line-height: 600px;
 
@@ -75,9 +75,11 @@
             border-radius: 20px;
 
         }
-        a{
+
+        a {
             text-decoration-line: none;
         }
+
         .left-1:hover {
             background: none;
             border: 2px #f9671e solid;
@@ -89,6 +91,8 @@
             border-collapse: collapse;
             margin: auto;
             color: white;
+            font-family: 楷体;
+            margin-top: 10px;
         }
 
         #left-2 {
@@ -183,22 +187,26 @@
                 <th>商品价格</th>
                 <th>商品图片</th>
                 <th>商品描述</th>
+                <th>品牌</th>
+                <th>数量</th>
                 <th>操作</th>
             </tr>
-            <c:forEach items="${list}" var="pro">
+
+            <c:forEach items="${list}" var="m">
+                <c:forEach items="${m.set}" var="p">
                 <tr>
-                    <td>${pro.productName}</td>
-                    <td>${pro.productPrice}</td>
-                    <td><img src="${pro.productUrl}"></td>
-                    <td>${pro.productDes}</td>
-                    <td><a href="delete?productId=${pro.productId}">删除</a>
-                        <a href="update?productId=${pro.productId}">修改</a>
+                    <td>${p.productName}</td>
+                    <td>${p.productPrice}</td>
+                    <td><img src="${p.productUrl}"></td>
+                    <td>${p.productDes}</td>
+                    <td>${m.markName}</td>
+                    <td>${p.count}</td>
+                    <td><a href="delete?productId=${p.productId}">删除</a>
+                        <a href="update?productId=${p.productId}">修改</a>
                     </td>
                 </tr>
+                </c:forEach>
             </c:forEach>
-            <%--<form action="add">
-                <input type="submit" value="添加">
-            </form>--%>
         </table>
     </div>
 </div>

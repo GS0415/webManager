@@ -13,7 +13,7 @@ public class ProDaoImpl implements IProDao {
 
     @Override
     public int add(Product pro) {
-        return JdbcUtil.zsg("insert into product(product_name,product_price,product_url,product_des) values(?,?,?,?)", pro.getProductName(), pro.getProductPrice(), pro.getProductUrl(), pro.getProductDes());
+        return JdbcUtil.zsg("insert into product(product_name,product_price,product_url,product_des,mark_id,count) values(?,?,?,?,?,?)", pro.getProductName(), pro.getProductPrice(), pro.getProductUrl(), pro.getProductDes(),pro.getMarkId(),pro.getCount());
     }
 
     @Override
@@ -23,7 +23,7 @@ public class ProDaoImpl implements IProDao {
 
     @Override
     public int update(Product pro) {
-        return JdbcUtil.zsg("update product set product_name=?,product_price=?,product_url=?,product_des=? where product_id=?", pro.getProductName(), pro.getProductPrice(), pro.getProductUrl(), pro.getProductDes(), pro.getProductId());
+        return JdbcUtil.zsg("update product set product_name=?,product_price=?,product_url=?,product_des=?,count=?,mark_id=? where product_id=?", pro.getProductName(), pro.getProductPrice(), pro.getProductUrl(), pro.getProductDes(),pro.getCount(),pro.getMarkId(), pro.getProductId());
     }
 
     @Override
@@ -38,6 +38,8 @@ public class ProDaoImpl implements IProDao {
                     p.setProductDes(rs.getString("product_des"));
                     p.setProductPrice(rs.getDouble("product_price"));
                     p.setProductId(rs.getInt("product_id"));
+                    p.setCount(rs.getInt("count"));
+                    p.setMarkId(rs.getInt("mark_id"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -58,12 +60,19 @@ public class ProDaoImpl implements IProDao {
                     p.setProductUrl(rs.getString("product_url"));
                     p.setProductDes(rs.getString("product_des"));
                     p.setProductId(rs.getInt("product_id"));
+                    p.setCount(rs.getInt("count"));
+                    p.setMarkId(rs.getInt("mark_id"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
                 return p;
             }
         }, id);
+    }
+
+    @Override
+    public int delByMid(int id) {
+        return JdbcUtil.zsg("delete * from product where mark_id=?",id);
     }
 
    /* @Override

@@ -6,6 +6,24 @@ public class Product {
     private double productPrice;
     private String productDes;
     private String productUrl;
+    private int markId;
+    private int count;
+
+    public int getMarkId() {
+        return markId;
+    }
+
+    public void setMarkId(int markId) {
+        this.markId = markId;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     @Override
     public String toString() {
@@ -15,6 +33,8 @@ public class Product {
                 ", productPrice=" + productPrice +
                 ", productDes='" + productDes + '\'' +
                 ", productUrl='" + productUrl + '\'' +
+                ", markId=" + markId +
+                ", count=" + count +
                 '}';
     }
 

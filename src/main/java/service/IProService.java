@@ -16,4 +16,6 @@ public interface IProService {
     List<Product> sel();
 
     Product selOne(int id);
+
+    int delByMid(int id);
 }

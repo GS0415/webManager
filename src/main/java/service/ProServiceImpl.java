@@ -37,4 +37,9 @@ public class ProServiceImpl implements IProService {
         return dao.selOne(id);
     }
 
+    @Override
+    public int delByMid(int id) {
+        return dao.delByMid(id);
+    }
+
 }
