@@ -6,7 +6,7 @@ import pojo.Product;
 import java.util.List;
 
 public interface IMarkDao {
-    int add(Mark m);
+    int addMark(Mark m);
 
     int delMark(int id);
 

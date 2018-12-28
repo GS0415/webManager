@@ -48,6 +48,8 @@ public class ProDaoImpl implements IProDao {
         }, null);
     }
 
+
+
     @Override
     public Product selOne(int id) {
         return JdbcUtil.selectOne("select * from product where product_id=?", new IRowMap<Product>() {
@@ -73,6 +75,26 @@ public class ProDaoImpl implements IProDao {
     @Override
     public int delByMid(int id) {
         return JdbcUtil.zsg("delete * from product where mark_id=?",id);
+    }
+
+    @Override
+    public List<Product> getLists(int pageNo, int pageSize) {
+        return JdbcUtil.select("select * from product limit ?,?", new IRowMap<Product>() {
+            @Override
+            public Product rowMap(ResultSet rs) {
+                Product p = new Product();
+                try {
+                    p.setProductId(rs.getInt("product_id"));
+                    p.setProductPrice(rs.getDouble("price"));
+                    p.setProductDes(rs.getString("product_des"));
+                    p.setProductName(rs.getString("product_name"));
+                    p.setProductUrl(rs.getString("url"));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return p;
+            }
+        },(pageNo-1)*pageSize,pageSize);
     }
 
    /* @Override

@@ -39,7 +39,7 @@
             /*border: 1px white solid;*/
             /*display: flex;*/
             vertical-align: top;
-            background-image: url("jsp/背景.png");
+            /*background-image: url("jsp/背景.png");*/
             background-size: 350px 600px;
             flex-wrap: wrap;
             display: inline-block;
@@ -52,7 +52,7 @@
             display: inline-block;
             margin-left: 20px;
             vertical-align: top;
-            background: url("jsp/right.png");
+          /*  background: url("jsp/right.png");*/
 
         }
 
@@ -111,6 +111,20 @@
             text-align: center;
             line-height: 35px;
         }
+        #right{
+            width: 700px;
+            height: 500px;
+            border: 1px saddlebrown solid;
+            margin-top: 25px;
+            /*line-height: 500px;*/
+        }
+        form{
+            width: 500px;
+            height: 300px;
+            border: 1px saddlebrown solid;
+            margin:auto ;
+            margin-top: 100px;
+        }
 
     </style>
 </head>
@@ -144,14 +158,14 @@
             </a>
         </label>
         <label>
-            <a href=""><%--修改--%>
-                <div class="left-1">修改商品</div>
+            <a href="addMark"><%--修改--%>
+                <div class="left-1">添加品牌</div>
             </a>
         </label>
     </div>
     <div id="right">
         <form action="doUpdate" method="post" enctype="multipart/form-data">
-            <input type="text" name="id" value="${pro.productId}" hidden="hidden">
+            <input type="text" name="id"  value="${pro.productId}" hidden="hidden">
             商品名称：<input type="text" name="name" value="${pro.productName}"><br>
             商品价格：<input type="text" name="price" value="${pro.productPrice}"><br>
             商品图片：<input type="file" name="url"  value="${pro.productUrl}"><br>

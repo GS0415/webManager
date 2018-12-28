@@ -18,4 +18,6 @@ public interface IProDao {
 
     int delByMid(int id);
 
+    List<Product> getLists(int pageNo, int pageSize);
+
 }

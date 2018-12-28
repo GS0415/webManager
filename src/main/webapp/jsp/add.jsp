@@ -144,8 +144,8 @@
             </a>
         </label>
         <label>
-            <a href=""><%--修改--%>
-                <div class="left-1">修改商品</div>
+            <a href="addMark"><%--修改--%>
+                <div class="left-1">添加品牌</div>
             </a>
         </label>
     </div>

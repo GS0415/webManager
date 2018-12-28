@@ -45,6 +45,8 @@ public class UserDaoImpl implements IUserDao {
                     user.setUserId(rs.getInt("id"));
                     user.setUserName(rs.getString("username"));
                     user.setTel(rs.getString("tel"));
+                    user.setPhoto(rs.getString("photo"));
+                    user.setSex(rs.getString("sex"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

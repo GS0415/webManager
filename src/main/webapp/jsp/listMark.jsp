@@ -173,7 +173,7 @@
             </a>
         </label>
         <label>
-            <a href=""><%--修改--%>
+            <a href="addMark"><%--修改--%>
                 <div class="left-1">添加品牌</div>
             </a>
         </label>

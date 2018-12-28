@@ -39,7 +39,6 @@
             /*border: 1px white solid;*/
             /*display: flex;*/
             vertical-align: top;
-            background-image: url("jsp/背景.png");
             background-size: 350px 600px;
             flex-wrap: wrap;
             display: inline-block;
@@ -52,7 +51,6 @@
             display: inline-block;
             margin-left: 20px;
             vertical-align: top;
-            background: url("jsp/right.png");
 
         }
 
@@ -143,8 +141,8 @@
             </a>
         </label>
         <label>
-            <a href=""><%--修改--%>
-                <div class="left-1">修改品牌</div>
+            <a href="addMar"><%--修改--%>
+                <div class="left-1">添加品牌</div>
             </a>
         </label>
     </div>

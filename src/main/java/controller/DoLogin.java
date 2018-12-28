@@ -1,12 +1,12 @@
 package controller;
+
 import pojo.User;
 import service.IUserService;
 import service.UserServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 @WebServlet("/doLogin")
@@ -19,11 +19,19 @@ public class DoLogin extends HttpServlet {
         User user = null;
         String pw = req.getParameter("pwd");
         String name = req.getParameter("un");
-        user=service.selOneUser(name);
-        req.setAttribute("user",user);
+        user = service.selOneUser(name);
+        System.out.println(user);
+        req.setAttribute("user", user);
+
+
         if (user != null) { // 可以使用
             if (user.getPassWord().equals(pw)) {
-                resp.getWriter().write("1"); //密码匹配
+                resp.getWriter().write("1");//密码匹配
+                Cookie cookie = new Cookie("name", name);
+                cookie.setMaxAge(60 * 60 * 24 * 7);
+                resp.addCookie(cookie);
+                HttpSession session =req.getSession();
+                session.setAttribute("user",user);
             } else {
                 resp.getWriter().write("2");//密码不正确
             }

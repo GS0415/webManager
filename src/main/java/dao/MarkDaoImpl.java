@@ -13,8 +13,8 @@ import java.util.Set;
 
 public class MarkDaoImpl implements IMarkDao {
     @Override
-    public int add(Mark m) {
-        return 0;
+    public int addMark(Mark m) {
+        return JdbcUtil.zsg("insert into mark (markname,logo)  values(?,?)",m.getMarkName(),m.getLogo());
     }
 
     @Override
