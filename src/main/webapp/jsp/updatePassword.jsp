@@ -175,11 +175,11 @@
         <br>
         <div>用户名：${user.userName}</div>
         <br>
-        <form action="doUpdatePassword" method="post">
-            原密码：<input type="password" id="pw" class="aaa"><br>
-            新密码：<input type="password" id="pwd" class="aaa"><br>
-            确认密码：<input type="password" id="pwds" class="aaa"><br>
-            <input type="submit" value="修改"><br>
+        <form action="login" method="post" id="form">
+            原密码：<input type="password" id="pw"><br>
+            新密码：<input type="password" id="pwd"><br>
+            确认密码：<input type="password" id="pwds"><br>
+            <input type="button" value="修改" id="but"><br>
         </form>
         <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
         <script>
@@ -187,7 +187,7 @@
                 var pw;
                 var pwd;
                 var pwds;
-                $(".aaa").keyup(function () {
+                $("#but").click(function () {
                     pw = $("#pw").val();
                     pwd = $("#pwd").val();
                     pwds = $("#pwds").val();
@@ -196,38 +196,15 @@
                         type: "post",
                         data: {"pw": pw, "pwd": pwd, "pwds": pwds},
                         success: function (result) {
-                            /*console.log(result);*/
                             if (result === "1") {
-                                $("#tip").text("可以使用");
-                                $("#register").attr("disabled", true);
+                                alert("修改成功");
+                                $("#form").submit();
                             }
                             if (result === "2") {
-                                $("#tip").text("用户名已存在");
-                                $("#register").attr("disabled", true);
-                            }
-                            if (result === "12") {
-                                $("#tip").text("可以使用");
-                                $("#tip1").text("密码不一致");
-                                $("#register").attr("disabled", true);
-                            }
-                            if (result === "11") {
-                                $("#tip").text("可以使用");
-                                $("#tip1").text("密码一致");
-                                $("#register").attr("disabled", false);
-                            }
-                            if (result === "22") {
-                                $("#tip").text("用户名已存在");
-                                $("#tip1").text("密码不一致");
-                                $("#register").attr("disabled", true);
-                            }
-                            if (result === "21") {
-                                $("#tip").text("用户名已存在");
-                                $("#tip1").text("密码一致");
-                                $("#register").attr("disabled", true);
+                                alert("修改失败");
                             }
                         }
                     });
-
                 });
                 $("#register").click(function () {
                     alert("注册成功");

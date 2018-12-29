@@ -35,7 +35,7 @@
 <h1>管 理 系 统</h1>
 <div class="app-cam">
     <div class="can"><img src="images/头像.png" class="img-responsive" alt=""/></div>
-    <form id="form" action="listOne">
+    <form id="form" action="listOne" method="post">
         <input type="text" id="user" name="name" placeholder="请输入用户名">
         <input type="password" placeholder="请输入密码" id="pwd">
         <div class="submit"><input type="button" value="登 录" id="login"></div>
@@ -64,7 +64,6 @@
                         $("#form").submit();
                     } else {
                         alert("用户名或密码错误");
-                        /*console.log(typeof $("#user").value)*/
                     }
                 }
             })

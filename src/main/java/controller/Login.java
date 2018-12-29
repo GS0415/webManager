@@ -11,8 +11,6 @@ import java.io.IOException;
 public class Login extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Cookie[] cookies=req.getCookies();
-
         req.getRequestDispatcher("/jsp/login.jsp").forward(req,resp);
     }
 }

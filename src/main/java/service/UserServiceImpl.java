@@ -22,7 +22,7 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public int update(User user) {
-        return 0;
+        return dao.update(user);
     }
 
     @Override

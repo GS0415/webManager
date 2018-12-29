@@ -177,8 +177,7 @@
         <div>用户名：${user.userName}</div><br>
         <div>性别：${user.sex}</div><br>
         <div>Tel：${user.tel}</div><br>
-        <a href="updatePassword">修改密码</a><br>
-        <a href="updateUser">修改个人信息</a>
+        <a href="updatePassword">修改密码</a>&nbsp &nbsp<a href="exit">退出</a>
 
     </div>
 </div>

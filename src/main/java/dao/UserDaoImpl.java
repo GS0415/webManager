@@ -21,7 +21,7 @@ public class UserDaoImpl implements IUserDao {
 
     @Override
     public int update(User user) {
-        return 0;
+        return JdbcUtil.zsg("update user set password=? where username=?",user.getPassWord(),user.getUserName());
     }
 
     @Override

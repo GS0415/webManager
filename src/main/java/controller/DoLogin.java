@@ -13,25 +13,24 @@ import java.io.IOException;
 public class DoLogin extends HttpServlet {
 
     @Override
-
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("utf-8");
         IUserService service = new UserServiceImpl();
         User user = null;
         String pw = req.getParameter("pwd");
         String name = req.getParameter("un");
         user = service.selOneUser(name);
-        System.out.println(user);
         req.setAttribute("user", user);
 
 
         if (user != null) { // 可以使用
             if (user.getPassWord().equals(pw)) {
-                resp.getWriter().write("1");//密码匹配
                 Cookie cookie = new Cookie("name", name);
                 cookie.setMaxAge(60 * 60 * 24 * 7);
                 resp.addCookie(cookie);
                 HttpSession session =req.getSession();
                 session.setAttribute("user",user);
+                resp.getWriter().write("1");//密码匹配
             } else {
                 resp.getWriter().write("2");//密码不正确
             }
