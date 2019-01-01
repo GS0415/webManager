@@ -39,7 +39,7 @@
             /*border: 1px white solid;*/
             /*display: flex;*/
             vertical-align: top;
-          /*  background-image: url("jsp/背景.png");*/
+            /*  background-image: url("jsp/背景.png");*/
             background-size: 350px 600px;
             flex-wrap: wrap;
             display: inline-block;
@@ -52,7 +52,7 @@
             display: inline-block;
             margin-left: 20px;
             vertical-align: top;
-         /*   background: url("jsp/right.png");*/
+            /*   background: url("jsp/right.png");*/
 
         }
 
@@ -112,6 +112,37 @@
             line-height: 35px;
         }
 
+        #form {
+            width: 500px;
+            height: 300px;
+            margin-top: 20px;
+            line-height: 10px;
+            margin-left: 100px;
+
+        }
+
+        .inp {
+
+            height: 20px;
+            margin-top: 30px;
+
+        }
+
+        #right-1 {
+            width: 500px;
+            height: 400px;
+            border: white 2px solid;
+            margin-top: 100px;
+            margin-left: 150px;
+            background: #f9671e;
+            color: white;
+        }
+
+        #right-1:hover {
+            border: #f9671e 2px solid;
+            background: none;
+            color: #f9671e;
+        }
     </style>
 </head>
 <body>
@@ -150,19 +181,21 @@
         </label>
     </div>
     <div id="right">
-        <form action="doAdd" method="post" enctype="multipart/form-data">
-            商品名称：<input type="text" name="name"><br>
-            商品价格：<input type="text" name="price"><br>
-            商品图片：<input type="file" name="url"><br>
-            商品描述：<input type="text" name="des"><br>
-            商品数量：<input type="text" name="count"><br>
-            品牌：<select name="mark">
-            <c:forEach items="${markList}" var="m">
-                <option value="${m.markId}">${m.markName}</option>
-            </c:forEach>
-        </select>
-            <input type="submit" value="添加">
-        </form>
+        <div id="right-1">
+            <form action="doAdd" method="post" enctype="multipart/form-data" id="form">
+                商品名称：<input type="text" name="name" class="inp"><br>
+                商品价格：<input type="text" name="price" class="inp"><br>
+                商品图片：<input type="file" name="url" class="inp"><br>
+                商品描述：<input type="text" name="des" class="inp"><br>
+                商品数量：<input type="text" name="count" class="inp"><br>
+                品牌：<select name="mark" class="inp">
+                <c:forEach items="${markList}" var="m">
+                    <option value="${m.markId}">${m.markName}</option>
+                </c:forEach>
+            </select>
+                <input type="submit" value="添加">
+            </form>
+        </div>
     </div>
 </div>
 

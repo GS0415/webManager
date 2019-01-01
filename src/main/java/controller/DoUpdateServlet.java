@@ -51,6 +51,7 @@ public class DoUpdateServlet extends HttpServlet {
         pro.setProductId(id);
         pro.setCount(count);
         pro.setMarkId(markId);
+
         service.update(pro);
         resp.sendRedirect("list");
     }

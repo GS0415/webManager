@@ -78,6 +78,21 @@ public class ProDaoImpl implements IProDao {
     }
 
     @Override
+    public int getCount() {
+        return JdbcUtil.executeCount("select count(*) from product",null);
+    }
+
+    @Override
+    public int getCount(String text) {
+        return JdbcUtil.executeCount("select count(*) from product where product_name like concat('%',?,'%') ",text);
+    }
+
+    @Override
+    public List<Product> getResults(String text) {
+        return null;
+    }
+
+    @Override
     public List<Product> getLists(int pageNo, int pageSize) {
         return JdbcUtil.select("select * from product limit ?,?", new IRowMap<Product>() {
             @Override
@@ -85,10 +100,12 @@ public class ProDaoImpl implements IProDao {
                 Product p = new Product();
                 try {
                     p.setProductId(rs.getInt("product_id"));
-                    p.setProductPrice(rs.getDouble("price"));
+                    p.setProductPrice(rs.getDouble("product_price"));
                     p.setProductDes(rs.getString("product_des"));
                     p.setProductName(rs.getString("product_name"));
-                    p.setProductUrl(rs.getString("url"));
+                    p.setProductUrl(rs.getString("product_url"));
+                    p.setCount(rs.getInt("count"));
+                    p.setMarkId(rs.getInt("mark_id"));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -97,7 +114,33 @@ public class ProDaoImpl implements IProDao {
         },(pageNo-1)*pageSize,pageSize);
     }
 
-   /* @Override
+
+
+    @Override
+    public List<Product> getLists(int pageNo, int pageSize, String text) {
+        return JdbcUtil.select("select * from product  where product_name like concat('%',?,'%') limit ?,?", new IRowMap<Product>() {
+
+
+            @Override
+            public Product rowMap(ResultSet rs) {
+                Product p = new Product();
+                try {
+                    p.setProductId(rs.getInt("product_id"));
+                    p.setProductPrice(rs.getDouble("product_price"));
+                    p.setProductDes(rs.getString("product_des"));
+                    p.setProductName(rs.getString("product_name"));
+                    p.setProductUrl(rs.getString("product_url"));
+                    p.setCount(rs.getInt("count"));
+                    p.setMarkId(rs.getInt("mark_id"));
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                return p;
+            }
+        },text,(pageNo-1)*pageSize,pageSize);
+    }
+
+    /* @Override
     public User SelOneUser(String name) {
         return JdbcUtil.selectOne("select * from user where username=?", new IRowMap<User>() {
             @Override

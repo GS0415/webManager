@@ -131,6 +131,35 @@
             line-height: 35px;
         }
 
+        #form {
+            width: 500px;
+            height: 300px;
+            margin-left: 100px;
+            margin-top: 100px;
+            line-height: 10px;
+
+        }
+
+        .inp {
+
+            height: 20px;
+            margin-top: 30px;
+
+        }
+        #right-1{
+            width: 500px;
+            height: 300px;
+            border: white 2px solid;
+            margin-top: 100px;
+            margin-left: 150px;
+            background: #f9671e;
+            color: white;
+        }
+        #right-1:hover{
+            border: #f9671e 2px solid;
+            background: none;
+            color: #f9671e;
+        }
     </style>
 </head>
 <body>
@@ -168,11 +197,13 @@
         </label>
     </div>
     <div id="right">
-        <form action="doAddMark" method="post" enctype="multipart/form-data">
-            品牌名称：<input type="text" name="name"><br>
-            logo：<input type="file" name="url"><br>
-            <input type="submit" value="添加">
-        </form>
+        <div id="right-1">
+            <form action="doAddMark" method="post" enctype="multipart/form-data" id="form">
+                <div class="inp">品牌名称：<input type="text" name="name"><br></div>
+                <div class="inp">logo：<input type="file" name="url"><br></div>
+                <div class="inp"><input type="submit" value="添加"></div>
+            </form>
+        </div>
     </div>
 </div>
 

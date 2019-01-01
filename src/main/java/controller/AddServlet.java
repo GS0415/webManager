@@ -18,8 +18,9 @@ import static controller.listOneServlet.getCookie;
 
 @WebServlet("/add")
 public class AddServlet extends HttpServlet {
-    private IMarkDao service =new MarkDaoImpl();
-    private IUserService service1=new UserServiceImpl();
+    private IMarkDao service = new MarkDaoImpl();
+    private IUserService service1 = new UserServiceImpl();
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Cookie[] cookies = req.getCookies();
@@ -33,9 +34,13 @@ public class AddServlet extends HttpServlet {
             User u = service1.selOneUser(name);
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
-           /* List<Mark> markList = service.selMark();
-            req.setAttribute("markList",markList);*/
-            req.getRequestDispatcher("jsp/add.jsp").forward(req, resp);
+            List<Mark> markList = service.selMark();
+            req.setAttribute("markList", markList);
+            if (u.getQuan().equals("2")) {
+                resp.sendRedirect("no");
+            } else {
+                req.getRequestDispatcher("jsp/add.jsp").forward(req, resp);
+            }
         }
     }
 }

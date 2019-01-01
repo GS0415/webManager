@@ -87,12 +87,12 @@
 
         }
 
-        #table {
+        table {
             border-collapse: collapse;
             margin: auto;
             color: white;
             font-family: 楷体;
-            margin-top: 10px;
+            margin-top: 50px;
         }
 
         #left-2 {
@@ -143,6 +143,34 @@
             text-align: center;
             line-height: 35px;
         }
+        #fm{
+            width: 200px;
+            height: 30px;
+            margin-top: 20px;
+        }
+
+        ul{
+            list-style: none;
+            margin-left: 100px;
+            margin-top: 50px;
+        }
+        ul li{
+            float: left;
+            height: 30px;
+            width: 60px;
+            line-height: 30px;
+            text-align: center;
+            border: solid 1px #000;
+        }
+        ul li a{
+            text-decoration: none;
+            color: #000;
+            display: block;
+        }
+
+        ul li:hover{
+            cursor: pointer;
+        }
 
     </style>
 </head>
@@ -181,7 +209,45 @@
         </label>
     </div>
     <div id="right">
-        <table id="table">
+        <form id="fm">
+            <input type="text" name="text" value="${text}" >
+            <input type="submit" value="搜索">
+        </form>
+        <table>
+            <tr>
+                <th>商品名称</th>
+                <th>商品价格</th>
+                <th>商品图片</th>
+                <th>商品描述</th>
+                <th>品牌</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+            <c:forEach items="${data.lists}" var="p">
+                <tr>
+                    <td>${p.productName}</td>
+                    <td>${p.productPrice}</td>
+                    <td><img src="${p.productUrl}" width="50px" height="50px" ></td>
+                    <td>${p.productDes}</td>
+                    <td>${p.markId}</td>
+                    <td>${p.count}</td>
+                    <td><a href="delete?productId=${p.productId}">删除</a>
+                        <a href="update?productId=${p.productId}">修改</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+        <ul>
+            ${data.pageView}
+        </ul>
+
+
+
+
+
+
+
+        <%--<table id="table">
             <tr>
                 <th>商品名称</th>
                 <th>商品价格</th>
@@ -192,22 +258,23 @@
                 <th>操作</th>
             </tr>
 
-            <c:forEach items="${list}" var="m">
-                <c:forEach items="${m.set}" var="p">
+            <c:forEach items="${list}" var="p">
+               &lt;%&ndash; <c:forEach items="${m.set}" var="p">&ndash;%&gt;
                 <tr>
                     <td>${p.productName}</td>
                     <td>${p.productPrice}</td>
                     <td><img src="${p.productUrl}"></td>
                     <td>${p.productDes}</td>
-                    <td>${m.markName}</td>
+                   &lt;%&ndash; <td>${m.markName}</td>&ndash;%&gt;
+                    <td>${p.markId}</td>
                     <td>${p.count}</td>
                     <td><a href="delete?productId=${p.productId}">删除</a>
                         <a href="update?productId=${p.productId}">修改</a>
                     </td>
                 </tr>
-                </c:forEach>
+                &lt;%&ndash;</c:forEach>&ndash;%&gt;
             </c:forEach>
-        </table>
+        </table>--%>
     </div>
 </div>
 

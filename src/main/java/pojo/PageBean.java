@@ -2,7 +2,7 @@ package pojo;
 
 public class PageBean {
     private int pageNo;
-    private int pageSize=1;
+    private int pageSize=2;
 
     public int getPageNo() {
         return pageNo;

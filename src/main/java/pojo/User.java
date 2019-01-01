@@ -7,6 +7,15 @@ public class User {
     private String tel;
     private String sex;
     private String photo;
+    private String quan;
+
+    public String getQuan() {
+        return quan;
+    }
+
+    public void setQuan(String quan) {
+        this.quan = quan;
+    }
 
     public String getSex() {
         return sex;

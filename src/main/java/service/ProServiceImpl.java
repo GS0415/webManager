@@ -5,6 +5,7 @@ package service;
 import dao.IProDao;
 import dao.ProDaoImpl;
 import pojo.Product;
+import pojo.ResultData;
 
 import java.util.List;
 
@@ -42,4 +43,21 @@ public class ProServiceImpl implements IProService {
         return dao.delByMid(id);
     }
 
+    @Override
+    public List<Product> getResults(String text) {
+        return null;
+    }
+
+    @Override
+    public ResultData getLists(int pageNo, int pageSize, String text) {
+        ResultData data = new ResultData(pageNo,pageSize,dao.getCount(text));
+        data.setLists(dao.getLists(pageNo,pageSize,text));
+        return data;
+    }
+    @Override
+    public ResultData getLists(int pageNo, int pageSize) {
+        ResultData data = new ResultData(pageNo,pageSize,dao.getCount());
+        data.setLists(dao.getLists(pageNo,pageSize));
+        return data;
+    }
 }

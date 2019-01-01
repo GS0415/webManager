@@ -30,7 +30,11 @@ public class AddMarkServlet extends HttpServlet {
             User u = service1.selOneUser(name);
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
-            req.getRequestDispatcher("jsp/addMark.jsp").forward(req, resp);
+            if (u.getQuan().equals("2")) {
+                resp.sendRedirect("no");
+            } else {
+                req.getRequestDispatcher("jsp/addMark.jsp").forward(req, resp);
+            }
         }
     }
 }

@@ -140,4 +140,25 @@ public class JdbcUtil {  //  Jdbc 工具类  写所有方法
         }*/
         return list;
     }
+    public static <T> int executeCount(String sql, Object... obj){
+        int a =0;
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+        conn=getConnection();
+        try {
+            pstmt = conn.prepareStatement(sql);
+            if(obj!=null){
+                for(int i=0;i<obj.length;i++){
+                    pstmt.setObject(i+1,obj[i]);
+                }
+            }
+            ResultSet rs = pstmt.executeQuery();
+            while(rs.next()){
+                a=rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return a;
+    }
 }

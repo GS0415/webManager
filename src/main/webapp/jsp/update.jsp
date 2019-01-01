@@ -52,7 +52,7 @@
             display: inline-block;
             margin-left: 20px;
             vertical-align: top;
-          /*  background: url("jsp/right.png");*/
+            /*  background: url("jsp/right.png");*/
 
         }
 
@@ -111,19 +111,44 @@
             text-align: center;
             line-height: 35px;
         }
-        #right{
+
+        #right {
             width: 700px;
             height: 500px;
-            border: 1px saddlebrown solid;
             margin-top: 25px;
             /*line-height: 500px;*/
         }
-        form{
+
+        #form {
             width: 500px;
             height: 300px;
-            border: 1px saddlebrown solid;
-            margin:auto ;
-            margin-top: 100px;
+            margin-top: 20px;
+            line-height: 10px;
+            margin-left: 100px;
+
+        }
+
+        .inp {
+
+            height: 20px;
+            margin-top: 30px;
+
+        }
+
+        #right-1 {
+            width: 500px;
+            height: 400px;
+            border: white 2px solid;
+            margin-top: 50px;
+            margin-left: 150px;
+            background: #f9671e;
+            color: white;
+        }
+
+        #right-1:hover {
+            border: #f9671e 2px solid;
+            background: none;
+            color: #f9671e;
         }
 
     </style>
@@ -164,22 +189,24 @@
         </label>
     </div>
     <div id="right">
-        <form action="doUpdate" method="post" enctype="multipart/form-data">
-            <input type="text" name="id"  value="${pro.productId}" hidden="hidden">
-            商品名称：<input type="text" name="name" value="${pro.productName}"><br>
-            商品价格：<input type="text" name="price" value="${pro.productPrice}"><br>
-            商品图片：<input type="file" name="url"  value="${pro.productUrl}"><br>
-            商品描述：<input type="text" name="des" value="${pro.productDes}"><br>
-            商品数量：<input type="text" name="count" value="${pro.count}"><br>
-            品牌：<select name="mark"><br>
-            <c:forEach items="${markList}" var="m">
-                <%-- <c:if test="${pro.productId=m.markId}">
-                 <option selected disabled style="display: none">${m.markName}</option>
-                 </c:if>--%>
-            <option value="${m.markId}">${m.markName}</option>
-            </c:forEach>
-            <<input type="submit" value="修改">
-        </form>
+        <div id="right-1">
+            <form action="doUpdate" method="post" enctype="multipart/form-data" id="form">
+                <input type="text" name="id" value="${pro.productId}" hidden="hidden" class="inp">
+                商品名称：<input type="text" name="name" value="${pro.productName}" class="inp"><br>
+                商品价格：<input type="text" name="price" value="${pro.productPrice}" class="inp"><br>
+                商品图片：<input type="file" name="url" value="${pro.productUrl}" class="inp"><br>
+                商品描述：<input type="text" name="des" value="${pro.productDes}" class="inp"><br>
+                商品数量：<input type="text" name="count" value="${pro.count}" class="inp"><br>
+                品牌：<select name="mark" class="inp"><br>
+                <c:forEach items="${markList}" var="m">
+                    <%-- <c:if test="${pro.productId=m.markId}">
+                     <option selected disabled style="display: none">${m.markName}</option>
+                     </c:if>--%>
+                <option value="${m.markId}">${m.markName}</option>
+                </c:forEach>
+                <<input type="submit" value="修改" class="inp">
+            </form>
+        </div>
     </div>
 </div>
 

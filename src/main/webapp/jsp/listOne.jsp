@@ -39,7 +39,7 @@
             /*border: 1px white solid;*/
             /*display: flex;*/
             vertical-align: top;
-        /*    background-image: url("jsp/背景.png");*/
+            /*    background-image: url("jsp/背景.png");*/
             background-size: 350px 600px;
             flex-wrap: wrap;
             display: inline-block;
@@ -72,9 +72,11 @@
             border-radius: 20px;
             text-decoration-line: none;
         }
-            a{
-                text-decoration-line: none;
-            }
+
+        a {
+            text-decoration-line: none;
+        }
+
         .left-1:hover {
             background: none;
             border: 2px #f9671e solid;
@@ -96,6 +98,7 @@
             text-decoration-line: none;
             margin-top: 10px;
         }
+
         #left-2:hover {
             background: none;
             border: 2px #f9671e solid;
@@ -127,15 +130,36 @@
             color: red;
             text-decoration: none;
         }
-        .left-text{
+
+        .left-text {
             color: white;
             width: 290px;
             height: 35px;
-            /*border: 1px black solid;*/
             text-align: center;
             line-height: 35px;
         }
-
+        #right-1 {
+            width: 300px;
+            height: 300px;
+            border: white 2px solid;
+            margin-top: 100px;
+            margin-left: 150px;
+            background: #f9671e;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+        }
+        #right-1:hover {
+            border: #f9671e 2px solid;
+            background: none;
+            color: #f9671e;
+        }
+        #right-2{
+            margin-top: 10px;
+        }
+        #right-1 a{
+            color: blue;
+        }
     </style>
 </head>
 <body>
@@ -173,12 +197,13 @@
         </label>
     </div>
     <div id="right">
-        <div><img src="${user.photo}" width="50px" height="50px"></div><br>
-        <div>用户名：${user.userName}</div><br>
-        <div>性别：${user.sex}</div><br>
-        <div>Tel：${user.tel}</div><br>
-        <a href="updatePassword">修改密码</a>&nbsp &nbsp<a href="exit">退出</a>
-
+        <div id="right-1">
+            <div id="right-2"><img src="${user.photo}" width="50px" height="50px"></div><br>
+            <div>用户名：${user.userName}</div><br>
+            <div>性别：${user.sex}</div><br>
+            <div>Tel：${user.tel}</div><br>
+            <a href="updatePassword">修改密码</a>&nbsp &nbsp<a href="exit">退出</a>
+        </div>
     </div>
 </div>
 </body>

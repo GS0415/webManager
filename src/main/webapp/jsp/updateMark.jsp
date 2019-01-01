@@ -17,7 +17,7 @@
         }
 
         body {
-            background:lightblue;
+            background: lightblue;
         }
 
         #top {
@@ -70,17 +70,17 @@
             border-radius: 20px;
 
         }
-        a{
+
+        a {
             text-decoration-line: none;
         }
+
         .left-1:hover {
             background: none;
             border: 2px #f9671e solid;
             color: #f9671e;
 
         }
-
-
 
         #left-2 {
             width: 290px;
@@ -95,6 +95,7 @@
             border-radius: 20px;
             margin-top: 10px;
         }
+
         td a {
             color: red;
             text-decoration: none;
@@ -109,6 +110,37 @@
             line-height: 35px;
         }
 
+        #form {
+            width: 500px;
+            height: 300px;
+            margin-top: 20px;
+            line-height: 10px;
+            margin-left: 100px;
+
+        }
+
+        .inp {
+
+            height: 20px;
+            margin-top: 30px;
+
+        }
+
+        #right-1 {
+            width: 500px;
+            height: 300px;
+            border: white 2px solid;
+            margin-top: 100px;
+            margin-left: 150px;
+            background: #f9671e;
+            color: white;
+        }
+
+        #right-1:hover {
+            border: #f9671e 2px solid;
+            background: none;
+            color: #f9671e;
+        }
     </style>
 </head>
 <body>
@@ -147,12 +179,14 @@
         </label>
     </div>
     <div id="right">
-        <form action="doUpdateMark" method="post" enctype="multipart/form-data">
-            <input type="text" name="id" value="${m.markId}" hidden="hidden">
-            品牌名称：<input type="text" name="name" value="${m.markName}"><br>
-            logo：<input type="file" name="logo" value="${m.logo}"><br>
-            <input type="submit" value="修改">
-        </form>
+        <div id="right-1">
+            <form action="doUpdateMark" method="post" enctype="multipart/form-data" id="form">
+                <input type="text" name="id" value="${m.markId}" hidden="hidden" class="inp">
+                品牌名称：<input type="text" name="name" value="${m.markName}" class="inp"><br>
+                logo：<input type="file" name="logo" value="${m.logo}" class="inp"><br>
+                <input type="submit" value="修改" class="inp">
+            </form>
+        </div>
     </div>
 </div>
 

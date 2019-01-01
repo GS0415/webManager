@@ -24,19 +24,6 @@ public class ResultData {
         }
         /*定义一个范围 只显示范围之间的页码*/
 
-
-          /* if(pageNo==1){
-               int max = pageNo+4;
-               for (int i=1;i<=max;i++){
-
-               }
-           }
-            if(pageNo==maxPage){
-                int min =maxPage-4;
-            }*/
-
-
-
             int min = pageNo-2;
 
             if(min<=0){
@@ -70,35 +57,6 @@ public class ResultData {
                 }
             }
 
-           /* int max = pageNo+2;
-            if(max>maxPage){
-                max=maxPage;
-            }
-
-
-            for(int i =max-4;i<=max;i++){
-                if(i==pageNo){
-                    strb.append("<li><a href='javascript:void(0)"+params+"' >"+i+"</a></li>");
-                }else{
-                    strb.append("<li><a href='"+url+"?pageNo="+i+""+params+"'>"+i+"</a></li>");
-                }
-            }*/
-
-
-
-
-
-
-
-
-/*
-        for(int i =1;i<=maxPage;i++){
-            if(i==pageNo){
-                strb.append("<li><a href='javascript:void(0)"+params+"' >"+i+"</a></li>");
-            }else{
-                strb.append("<li><a href='"+url+"?pageNo="+i+""+params+"'>"+i+"</a></li>");
-            }
-        }*/
 
         if(pageNo==maxPage){
             strb.append("<li class='page'><a href='javascript:void(0)"+params+"'>下一页</a></li>");
@@ -113,10 +71,6 @@ public class ResultData {
     public String getPageView(){
         return pageView;
     }
-
-
-
-
 
     public ResultData(int pageNo, int pageSize, int maxCount) {
         this.pageNo = pageNo;
