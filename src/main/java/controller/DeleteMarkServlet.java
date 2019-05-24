@@ -16,6 +16,9 @@ import java.util.Map;
 
 import static controller.listOneServlet.getCookie;
 
+/**
+ * 多模块git管理
+ */
 @WebServlet("/deleteMark")
 public class DeleteMarkServlet extends HttpServlet {
     private IMarkDao service2 = new MarkDaoImpl();
